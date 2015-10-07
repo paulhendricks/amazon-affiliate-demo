@@ -1,12 +1,116 @@
-# Site settings
-title: Snipcart Jekyll Demo
-email: paul.hendricks.2013@owu.edu
-description: > # this means to ignore newlines until "baseurl:"
-  This is a Snipcart Jekyll Demo.
-baseurl: "/snipcart-jekyll-demo" # the subpath of your site, e.g. /blog/
-url: "http://paulhendricks.io" # the base hostname & protocol for your site
-twitter_username: paulhendricks
-github_username:  paulhendricks
+title: Hover Board Store
+description: 'A lightweight, backend-free ecommerce solution.'
+baseurl: /front
+url: 'http://paulhendricks.io/front'
 
-# Build settings
-markdown: kramdown
+# Jekyll-Store Engine
+defaultAddress:
+  country: GB
+payment:
+  tokenizer: Paymill
+  currency: GBP
+  hook: 'https://jekyll-store-microservice.herokuapp.com/purchase'
+tracking_id: 'UA-62379004-1'
+
+# Jekll-Store Front
+image_prefix: 'http://res.cloudinary.com/jekyll-store/'
+paymillPublicKey: 323027826220f6ed944b96a1a47e35a0
+wake_up: 'http://jekyll-store-microservice.herokuapp.com/ping'
+disqus_shortname: 'jekyll-store'
+
+# http://openexchangerates.github.io/accounting.js/#documentation
+accounting:
+  symbol : '£'
+  format: '%s%v'
+  decimal : '.'
+  thousand: ','
+  precision : 2
+
+# https://github.com/prose/prose/wiki/Prose-Configuration
+prose:
+  ignore:
+    - _includes
+    - _layouts
+    - assets
+    - json
+    - node_modules
+    - pages
+    - .gitignore
+    - _config.yml
+    - CNAME
+    - Gemfile
+    - package.json
+    - README.md
+  metadata:
+    _products:
+      - name: name
+        field:
+          element: text
+          label: Name
+          help: Must be unique
+      - name: price
+        field:
+          element: number
+          label: 'Price (£)'
+      - name: weight
+        field:
+          element: number
+          label: 'Weight (kg)'
+      - name: designer
+        field:
+          element: text
+          label: Designer
+      - name: type
+        field:
+          element: select
+          label: Type
+          options:
+            - value: Wood
+            - value: Metal
+            - value: Metallic
+      - name: condition
+        field:
+          element: select
+          label: Condition
+          options:
+            - value: Mint
+            - value: Worn
+            - value: Rough
+      - name: image
+        field:
+          element: text
+          label: Image
+      - name: big_image
+        field:
+          element: text
+          label: Big Image
+
+# http://jekyllrb.com/docs/configuration/
+permalink: blog/:title
+sass:
+  sass_dir: /assets/_sass
+  style: :compressed
+collections:
+  products:
+    output: true
+    permalink: /:path/
+defaults:
+  -
+    scope:
+      path: '' # an empty string here means all files in the project
+      type: posts # previously `post` in Jekyll 2.2.
+    values:
+      layout: post
+  -
+    scope:
+      path: ''
+      type: products
+    values:
+      layout: product
+exclude:
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CNAME
+  - package.json

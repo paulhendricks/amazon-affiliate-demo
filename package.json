@@ -1,0 +1,36 @@
+{
+  "name": "jekyll-store-front",
+  "description": "Jekyll Frontend for the Jekyll-Store ecommerce solution",
+  "scripts": {
+    "watch": "watchify -t reactify ./assets/_js/index.js -o ./assets/_js/compiled.js -v",
+    "build": "browserify -t reactify ./assets/_js/index.js | uglifyjs -c -m > ./assets/_js/compiled.js",
+    "serve": "bundle exec jekyll serve --baseurl ''"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jekyll-store/front.git"
+  },
+  "author": "Max White",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jekyll-store/front/issues"
+  },
+  "homepage": "https://github.com/jekyll-store/front",
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "big.js": "^3.0.1",
+    "browserify": "^11.0.1",
+    "jekyll-store-display": "0.1.0",
+    "jekyll-store-engine": "0.2.6",
+    "jekyll-store-favourites": "0.2.0",
+    "jekyll-store-google-analytics": "0.0.2",
+    "jekyll-store-visited": "0.1.0",
+    "react": "^0.13.1",
+    "reactify": "^1.1.0",
+    "reflux": "^0.2.7",
+    "spin.js": "^2.0.2",
+    "superagent": "^1.2.0",
+    "uglifyjs": "^2.4.10",
+    "watchify": "^3.1.1"
+  }
+}

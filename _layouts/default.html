@@ -1,20 +1,17 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
-
   <body>
 
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+    <div class='wrapper-for-content-outside-of-footer'>
+      {% include centered_navigation.html %}
+      {{ content }}
     </div>
 
     {% include footer.html %}
-
+    <script src='{{ site.baseurl }}/assets/app.js'></script>
   </body>
-
 </html>
