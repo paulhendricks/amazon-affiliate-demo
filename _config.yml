@@ -1,0 +1,12 @@
+# Site settings
+title: Snipcart Jekyll Demo
+email: paul.hendricks.2013@owu.edu
+description: > # this means to ignore newlines until "baseurl:"
+  This is a Snipcart Jekyll Demo.
+baseurl: "/snipcart-jekyll-demo" # the subpath of your site, e.g. /blog/
+url: "http://paulhendricks.io" # the base hostname & protocol for your site
+twitter_username: paulhendricks
+github_username:  paulhendricks
+
+# Build settings
+markdown: kramdown
